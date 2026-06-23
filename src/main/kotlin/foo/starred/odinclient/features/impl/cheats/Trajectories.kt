@@ -42,6 +42,7 @@ object Trajectories : Module(
     private val pearls by BooleanSetting("Pearls", true, desc = "Render trajectories of ender pearls.")
     private val plane by BooleanSetting("Show Plane", false, desc = "Shows a flat square rotated relative to the predicted block that will be hit.")
     private val boxes by BooleanSetting("Show Boxes", true, desc = "Shows boxes displaying where arrows or pearls will hit.")
+    private val entities by BooleanSetting("Show Entities", true, desc = "Show boxes highlighting entities which the arrows will hit.")
     private val lines by BooleanSetting("Show Lines", true, desc = "Shows the trajectory as a line.")
     private val range by NumberSetting("Solver Range", 30, 1, 120, 1, desc = "How many ticks are simulated.")
     private val width by NumberSetting("Line Width", 1f, 0.1f, 5.0, 0.1f, desc = "The width of the line.")
@@ -195,6 +196,7 @@ object Trajectories : Module(
             drawFilledBox(box, color.multiplyAlpha(0.3f), depth)
         }
 
+        if (!entities) return
         for (entity in entityRenderQueue) {
             val aabb = entity.renderBoundingBox
             drawWireFrameBox(aabb, color, width, depth)
