@@ -1,4 +1,4 @@
-# OdinClient, but for Fabric 1.21!
+# OdinClient, but for Fabric 1.21 and 26.1!
 
 Not affiliated with the developers of OdinClient for 1.8.9 or odtheking.
 <br>
