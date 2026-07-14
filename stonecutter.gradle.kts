@@ -12,10 +12,6 @@ stonecutter parameters {
     swaps["minecraft"] = "\"" + node.metadata.version + "\""
 
     replacements {
-        string(current.parsed >= "1.21.11") {
-            replace("ResourceLocation", "Identifier")
-        }
-
         string(current.parsed >= "26.1") {
             replace("ClientCommandManager", "ClientCommands")
             replace("ClickType", "ContainerInput")
