@@ -3,10 +3,11 @@ package foo.starred.odinclient.mixin.mixins.od;
 import com.odtheking.odin.config.ModuleConfig;
 import com.odtheking.odin.features.Module;
 import com.odtheking.odin.features.ModuleManager;
-import com.odtheking.odin.features.impl/*? >= 1.21.11 {*/.boss/*? } else {*//*.dungeon*//*? }*/.LividSolver;
-import com.odtheking.odin.features.impl/*? >= 1.21.11 {*/.boss/*? } else {*//*.dungeon*//*? }*/.SpiritBear;
+import com.odtheking.odin.features.impl.boss.LividSolver;
+import com.odtheking.odin.features.impl.boss.SpiritBear;
 import com.odtheking.odin.features.impl.dungeon.BreakerDisplay;
-import com.odtheking.odin.features.impl.dungeon.KeyHighlight;
+//? >= 26.1
+import com.odtheking.odin.features.impl.dungeon.DoorHighlight;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -20,7 +21,8 @@ public class ModuleManagerMixin {
         return Arrays.stream(modules)
                 .filter(module -> !(module instanceof LividSolver ||
                         module instanceof BreakerDisplay ||
-                        module instanceof KeyHighlight ||
+                        //? >= 26.1
+                        module instanceof DoorHighlight ||
                         module instanceof SpiritBear))
                 .toArray(Module[]::new);
     }

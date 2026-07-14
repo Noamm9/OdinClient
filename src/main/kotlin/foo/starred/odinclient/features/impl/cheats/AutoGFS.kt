@@ -50,9 +50,14 @@ import com.odtheking.odin.utils.sendCommand
 import com.odtheking.odin.utils.skyblock.KuudraUtils
 import com.odtheking.odin.utils.skyblock.LocationUtils
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
-import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
 import foo.starred.odinclient.mixin.accessors.PuzzleSolversAccessor
 import foo.starred.odinclient.utils.Skit
+
+//? if >= 26.1 {
+import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
+//? } else {
+/*import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
+*///? }
 
 object AutoGFS : Module(
     name = "Auto GFS",

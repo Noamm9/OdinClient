@@ -65,7 +65,6 @@ object CloseChest : Module(
             it.cancel()
         }
 
-        //~ if >=1.21.11 'GuiEvent' -> 'ScreenEvent'
         on<ScreenEvent.KeyPress> {
             if (!DungeonUtils.inDungeons) return@on
             if (mc.options.keyInventory.matches(input)) return@on
@@ -73,7 +72,6 @@ object CloseChest : Module(
             handleInput(screen)
         }
 
-        //~ if >=1.21.11 'GuiEvent' -> 'ScreenEvent'
         on<ScreenEvent.MouseClick> {
             if (!DungeonUtils.inDungeons) return@on
 

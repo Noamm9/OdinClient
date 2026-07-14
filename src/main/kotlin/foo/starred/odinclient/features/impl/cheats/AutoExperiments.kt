@@ -29,7 +29,6 @@ object AutoExperiments : Module (
     private var lastClick: Long = 0
 
     init {
-        //~ if >= 1.21.11 'GuiEvent' -> 'ScreenEvent' {
         on<ScreenEvent.Open> {
             val title = screen.title.string
 
@@ -53,7 +52,6 @@ object AutoExperiments : Module (
 
             cancel()
         }
-        //~ }
 
         on<GuiEvent.SlotUpdate> {
             handler?.onSlotUpdate(this)

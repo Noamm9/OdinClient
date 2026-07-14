@@ -10,13 +10,18 @@ import com.odtheking.odin.utils.itemId
 import com.odtheking.odin.utils.loreString
 import com.odtheking.odin.utils.render.textDim
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
-import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
 import net.minecraft.core.BlockPos
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.level.block.Blocks
 import foo.starred.odinclient.events.InteractEvent
 import foo.starred.odinclient.utils.Skit
+
+//? if >= 26.1 {
+import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
+//? } else {
+/*import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
+*///? }
 
 object BreakerHelper : Module(
     name = "Breaker Helper",
