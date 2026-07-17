@@ -1,4 +1,4 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.general
 
 import com.mojang.blaze3d.platform.InputConstants
 import com.odtheking.odin.clickgui.settings.impl.NumberSetting

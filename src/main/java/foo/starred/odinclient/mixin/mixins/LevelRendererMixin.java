@@ -2,7 +2,7 @@ package foo.starred.odinclient.mixin.mixins;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import foo.starred.odinclient.features.impl.cheats.SecretHitboxes;
+import foo.starred.odinclient.features.impl.dungeons.SecretHitboxes;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

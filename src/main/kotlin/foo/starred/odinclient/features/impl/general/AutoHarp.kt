@@ -1,4 +1,4 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.general
 
 import com.odtheking.odin.events.TickEvent
 import com.odtheking.odin.events.core.on

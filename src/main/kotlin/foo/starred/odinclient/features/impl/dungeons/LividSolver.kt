@@ -32,7 +32,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.dungeons
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.events.*
@@ -47,13 +47,13 @@ import com.odtheking.odin.utils.modMessage
 import com.odtheking.odin.utils.render.drawWireFrameBox
 import com.odtheking.odin.utils.render.textDim
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
+import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.drawTracer
 import net.minecraft.core.BlockPos
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import foo.starred.odinclient.utils.Skit
-import foo.starred.odinclient.utils.drawTracer
 
 object LividSolver : Module(
     name = "Livid Solver (C)",
@@ -94,7 +94,9 @@ object LividSolver : Module(
         onReceive<ClientboundSetEntityDataPacket> {
             if (!DungeonUtils.inBoss || !DungeonUtils.isFloor(5)) return@onReceive
             schedule(2) {
-                currentLivid.entity = (mc.level?.getEntity(id) as? Player)?.takeIf { it.name.string == "${currentLivid.entityName} Livid" } ?: return@schedule
+                currentLivid.entity =
+                    (mc.level?.getEntity(id) as? Player)?.takeIf { it.name.string == "${currentLivid.entityName} Livid" }
+                        ?: return@schedule
             }
         }
 

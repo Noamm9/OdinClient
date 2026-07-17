@@ -6,7 +6,7 @@ import com.odtheking.odin.OdinMod.mc
 import com.odtheking.odin.utils.modMessage
 import com.odtheking.odin.utils.noControlCodes
 import foo.starred.odinclient.OdinClient
-import foo.starred.odinclient.features.impl.cheats.AutoSell.sellList
+import foo.starred.odinclient.features.impl.dungeons.AutoSell.sellList
 
 val autoSellCommand = Commodore("autosell") {
     literal("add").runs { item: GreedyString? ->

@@ -1,6 +1,6 @@
 package foo.starred.odinclient.mixin.mixins;
 
-import foo.starred.odinclient.features.impl.cheats.BreakerHelper;
+import foo.starred.odinclient.features.impl.dungeons.BreakerHelper;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

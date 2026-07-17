@@ -1,13 +1,13 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.floor7
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.features.Module
+import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.notify
 import net.minecraft.network.chat.ClickEvent
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.HoverEvent
 import net.minecraft.network.chat.Style
-import foo.starred.odinclient.utils.Skit
-import foo.starred.odinclient.utils.notify
 import java.net.URI
 
 object QueueTerms : Module(
@@ -15,7 +15,11 @@ object QueueTerms : Module(
     description = "Queues clicks in terminals to ensure every click is registered (only works in custom term gui).",
     category = Skit.CHEATS
 ) {
-    private val hover by BooleanSetting("HOVER HERE!!!", true, "Please do not use this module, look into using another mod.")
+    private val hover by BooleanSetting(
+        "HOVER HERE!!!",
+        true,
+        "Please do not use this module, look into using another mod."
+    )
 
     override fun onEnable() {
         super.onEnable()

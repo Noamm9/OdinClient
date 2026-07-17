@@ -1,4 +1,4 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.general
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.clickgui.settings.impl.NumberSetting
@@ -153,7 +153,7 @@ object WorldScanner : Module(
         val centerPos = Vec3.atCenterOf(pos)
         val aabb = AABB.unitCubeFromLowerCorner(Vec3.atLowerCornerOf(pos))
         drawStyledBox(aabb, color, renderStyle, false)
-        
+
         if (renderText && showText) {
             val distance = mc.player?.distanceToSqr(centerPos) ?: 1.0
             val distMeters = kotlin.math.sqrt(distance)
@@ -177,7 +177,7 @@ object WorldScanner : Module(
             for (z in 0..15) {
                 val worldX = chunk.pos.x * 16 + x
                 val worldZ = chunk.pos.z * 16 + z
-                
+
                 for (y in 0..170) {
                     val state = getBlockState(chunk, x, y, z)
                     if (state.isAir) continue

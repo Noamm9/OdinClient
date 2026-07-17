@@ -1,6 +1,6 @@
 package foo.starred.odinclient.mixin.mixins;
 
-import foo.starred.odinclient.features.impl.cheats.Highlight;
+import foo.starred.odinclient.features.impl.dungeons.Highlight;
 import foo.starred.odinclient.features.impl.render.NoGlow;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;

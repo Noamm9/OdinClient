@@ -1,4 +1,4 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.general
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.clickgui.settings.impl.NumberSetting
@@ -11,6 +11,10 @@ import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.Colors
 import com.odtheking.odin.utils.render.drawStyledBox
 import com.odtheking.odin.utils.renderBoundingBox
+import foo.starred.odinclient.mixin.accessors.InventoryAccessor
+import foo.starred.odinclient.utils.RotationUtils
+import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.leftClick
 import net.minecraft.core.BlockPos
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
@@ -23,10 +27,6 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.phys.AABB
 import net.minecraft.world.phys.Vec3
-import foo.starred.odinclient.mixin.accessors.InventoryAccessor
-import foo.starred.odinclient.utils.Skit
-import foo.starred.odinclient.utils.RotationUtils
-import foo.starred.odinclient.utils.leftClick
 import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.sqrt
@@ -38,13 +38,48 @@ object AutoDojo : Module(
 ) {
     private val hover by BooleanSetting("HOVER HERE!!!", true, "Use at your own risk.")
 
-    private val enableControl by BooleanSetting("Enable Control", true, desc = "Automatically aim at skeleton in Test of Control")
-    private val controlPredictionTicks by NumberSetting("Control Prediction Ticks", 5.0, 1.0, 20.0, 1.0, desc = "How many ticks ahead to predict skeleton movement")
-    private val enableMastery by BooleanSetting("Enable Mastery", true, desc = "Automatically shoot blocks in Test of Mastery")
-    private val masteryShootDelay by NumberSetting("Mastery Shoot Delay (ms)", 600.0, 0.0, 2000.0, 50.0, desc = "Time remaining on yellow block before shooting")
-    private val enableDiscipline by BooleanSetting("Enable Discipline", true, desc = "Automatically switch swords in Test of Discipline")
-    private val disciplineAutoAttack by BooleanSetting("Discipline Auto Attack", true, desc = "Automatically attack mobs in Test of Discipline")
-    private val renderStyle by SelectorSetting("Render Style", "Filled", listOf("Filled", "Outline", "Filled Outline"), desc = "Style of the box.")
+    private val enableControl by BooleanSetting(
+        "Enable Control",
+        true,
+        desc = "Automatically aim at skeleton in Test of Control"
+    )
+    private val controlPredictionTicks by NumberSetting(
+        "Control Prediction Ticks",
+        5.0,
+        1.0,
+        20.0,
+        1.0,
+        desc = "How many ticks ahead to predict skeleton movement"
+    )
+    private val enableMastery by BooleanSetting(
+        "Enable Mastery",
+        true,
+        desc = "Automatically shoot blocks in Test of Mastery"
+    )
+    private val masteryShootDelay by NumberSetting(
+        "Mastery Shoot Delay (ms)",
+        600.0,
+        0.0,
+        2000.0,
+        50.0,
+        desc = "Time remaining on yellow block before shooting"
+    )
+    private val enableDiscipline by BooleanSetting(
+        "Enable Discipline",
+        true,
+        desc = "Automatically switch swords in Test of Discipline"
+    )
+    private val disciplineAutoAttack by BooleanSetting(
+        "Discipline Auto Attack",
+        true,
+        desc = "Automatically attack mobs in Test of Discipline"
+    )
+    private val renderStyle by SelectorSetting(
+        "Render Style",
+        "Filled",
+        listOf("Filled", "Outline", "Filled Outline"),
+        desc = "Style of the box."
+    )
 
     private var dojoType = DojoType.NONE
     private var targetSkeleton: Entity? = null
@@ -123,7 +158,14 @@ object AutoDojo : Module(
             // Render mastery blocks
             if (dojoType == DojoType.MASTERY) {
                 for (block in masteryBlocks) {
-                    val aabb = AABB(block.x.toDouble(), block.y.toDouble(), block.z.toDouble(), block.x + 1.0, block.y + 1.0, block.z + 1.0)
+                    val aabb = AABB(
+                        block.x.toDouble(),
+                        block.y.toDouble(),
+                        block.z.toDouble(),
+                        block.x + 1.0,
+                        block.y + 1.0,
+                        block.z + 1.0
+                    )
                     drawStyledBox(aabb, Colors.MINECRAFT_RED, renderStyle, false)
                 }
             }

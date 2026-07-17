@@ -5,8 +5,8 @@ import com.github.stivais.commodore.utils.GreedyString
 import com.odtheking.odin.utils.Color
 import com.odtheking.odin.utils.modMessage
 import foo.starred.odinclient.OdinClient
-import foo.starred.odinclient.features.impl.cheats.Highlight
-import foo.starred.odinclient.features.impl.cheats.Highlight.highlightMap
+import foo.starred.odinclient.features.impl.dungeons.Highlight
+import foo.starred.odinclient.features.impl.dungeons.Highlight.highlightMap
 
 val highlightCommand = Commodore("highlight") {
     val colorRegex = Regex("^(.*?)(?:\\s+#?([0-9a-fA-F]{6}))?$")

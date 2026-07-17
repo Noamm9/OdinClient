@@ -32,32 +32,48 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.dungeons
 
+import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
+import com.odtheking.odin.clickgui.settings.impl.KeybindSetting
 import com.odtheking.odin.events.ChatPacketEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
-import com.odtheking.odin.utils.sendCommand
+import com.odtheking.odin.utils.handlers.schedule
+import com.odtheking.odin.utils.modMessage
+import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
+import org.lwjgl.glfw.GLFW
 import foo.starred.odinclient.utils.Skit
 
-object EscrowFix : Module(
-    name = "Escrow Fix",
-    description = "Automatically reopens the ah/bz when it gets closed by escrow.",
+object AutoAbilities : Module(
+    name = "Auto Abilities",
+    description = "Automatically uses your ability in dungeons.",
     category = Skit.CHEATS
 ) {
-    private val messages = mapOf(
-        "There was an error with the auction house! (AUCTION_EXPIRED_OR_NOT_FOUND)" to "ah",
-        "There was an error with the auction house! (INVALID_BID)" to "ah",
-        "Claiming BIN auction..." to "ah",
-        "Visit the Auction House to collect your item!" to "ah"
-    )
-
-    private val regex = Regex("Escrow refunded (\\d+) coins for Bazaar Instant Buy Submit!")
+    private val autoUlt by BooleanSetting("Auto Ult", false, desc = "Automatically uses your ultimate ability whenever needed.")
+    private val abilityKeybind by KeybindSetting("Ability Keybind", GLFW.GLFW_KEY_UNKNOWN, desc = "Keybind to use your ability.").onPress {
+        if (!DungeonUtils.inDungeons || !enabled) return@onPress
+        dropItem(dropAll = true)
+    }
 
     init {
         on<ChatPacketEvent> {
-            val command = messages[value] ?: if (value.matches(regex)) "bz" else null
-            command?.let { sendCommand(it) }
+            if (!autoUlt) return@on
+
+            val delay = when (value) {
+                "⚠ Maxor is enraged! ⚠", "[BOSS] Goldor: You have done it, you destroyed the factory…" -> 1
+                "[BOSS] Sadan: My giants! Unleashed!" -> 25
+                else -> return@on
+            }
+
+            dropItem(delay = delay)
+            modMessage("§aUsing ult!")
+        }
+    }
+
+    private fun dropItem(dropAll: Boolean = false, delay: Int = 1) {
+        schedule(delay) {
+            mc.player?.drop(dropAll)
         }
     }
 }

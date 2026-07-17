@@ -3,8 +3,8 @@ package foo.starred.odinclient.commands
 import com.github.stivais.commodore.Commodore
 import com.odtheking.odin.utils.getChatBreak
 import com.odtheking.odin.utils.modMessage
-import foo.starred.odinclient.features.impl.cheats.AutoClicker
-import foo.starred.odinclient.features.impl.cheats.AutoClicker.held
+import foo.starred.odinclient.features.impl.general.AutoClicker
+import foo.starred.odinclient.features.impl.general.AutoClicker.held
 
 val autoClickerCommand = Commodore("autoclicker") {
     literal("add") {

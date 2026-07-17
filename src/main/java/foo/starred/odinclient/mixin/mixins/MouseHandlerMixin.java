@@ -1,6 +1,6 @@
 package foo.starred.odinclient.mixin.mixins;
 
-import foo.starred.odinclient.features.impl.cheats.FarmKeys;
+import foo.starred.odinclient.features.impl.general.FarmKeys;
 import net.minecraft.client.MouseHandler;
 import net.minecraft.client.input.MouseButtonInfo;
 import org.spongepowered.asm.mixin.Mixin;

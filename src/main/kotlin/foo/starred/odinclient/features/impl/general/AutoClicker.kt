@@ -1,4 +1,4 @@
-package foo.starred.odinclient.features.impl.cheats
+package foo.starred.odinclient.features.impl.general
 
 import com.mojang.blaze3d.platform.InputConstants
 import com.mojang.serialization.Codec
@@ -10,9 +10,6 @@ import com.odtheking.odin.events.TickEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.itemId
-import net.minecraft.client.KeyMapping
-import net.minecraft.world.phys.BlockHitResult
-import org.lwjgl.glfw.GLFW
 import foo.starred.odinclient.helpers.Scribble
 import foo.starred.odinclient.mixin.accessors.KeyMappingAccessor
 import foo.starred.odinclient.utils.Skit
@@ -20,6 +17,9 @@ import foo.starred.odinclient.utils.leftClick
 import foo.starred.odinclient.utils.nullableID
 import foo.starred.odinclient.utils.nullableUUID
 import foo.starred.odinclient.utils.rightClick
+import net.minecraft.client.KeyMapping
+import net.minecraft.world.phys.BlockHitResult
+import org.lwjgl.glfw.GLFW
 import xyz.aerii.library.api.bound
 
 object AutoClicker : Module(
@@ -27,18 +27,69 @@ object AutoClicker : Module(
     description = "Auto clicker with options for left-click, right-click, or both.",
     category = Skit.CHEATS
 ) {
-    private val whiteListOnly by BooleanSetting("Whitelist only", desc = "Only click when holding a whitelisted item, whitelist using \"/autoclicker add [left|right]\" while holding the item.")
-    private val allowBreaking by BooleanSetting("Allow breaking blocks", desc = "Allows you to break blocks when auto clicking.")
-    private val blockBreaker by BooleanSetting("Block dungeon breaker", true, desc = "Prevents auto clicker from working with Dungeon Breaker.")
-    private val terminatorOnly by BooleanSetting("Terminator Only", true, desc = "Only click when the terminator and right click are held.")
-    private val cps by NumberSetting("Clicks Per Second", 5.0f, 3.0, 15.0, .5, desc = "The amount of clicks per second to perform.").withDependency { terminatorOnly }
+    private val whiteListOnly by BooleanSetting(
+        "Whitelist only",
+        desc = "Only click when holding a whitelisted item, whitelist using \"/autoclicker add [left|right]\" while holding the item."
+    )
+    private val allowBreaking by BooleanSetting(
+        "Allow breaking blocks",
+        desc = "Allows you to break blocks when auto clicking."
+    )
+    private val blockBreaker by BooleanSetting(
+        "Block dungeon breaker",
+        true,
+        desc = "Prevents auto clicker from working with Dungeon Breaker."
+    )
+    private val terminatorOnly by BooleanSetting(
+        "Terminator Only",
+        true,
+        desc = "Only click when the terminator and right click are held."
+    )
+    private val cps by NumberSetting(
+        "Clicks Per Second",
+        5.0f,
+        3.0,
+        15.0,
+        .5,
+        desc = "The amount of clicks per second to perform."
+    ).withDependency { terminatorOnly }
 
-    private val enableLeftClick by BooleanSetting("Enable Left Click", true, desc = "Enable auto-clicking for left-click.").withDependency { !terminatorOnly }
-    private val enableRightClick by BooleanSetting("Enable Right Click", true, desc = "Enable auto-clicking for right-click.").withDependency { !terminatorOnly }
-    private val leftCps by NumberSetting("Left Clicks Per Second", 5.0f, 3.0, 15.0, .5, desc = "The amount of left clicks per second to perform.").withDependency { !terminatorOnly }
-    private val rightCps by NumberSetting("Right Clicks Per Second", 5.0f, 3.0, 15.0, .5, desc = "The amount of right clicks per second to perform.").withDependency { !terminatorOnly }
-    private val leftClickKeybind = KeybindSetting("Left Click", GLFW.GLFW_KEY_UNKNOWN, desc = "The keybind to hold for the auto clicker to click left click.").withDependency { !terminatorOnly }
-    private val rightClickKeybind = KeybindSetting("Right Click", GLFW.GLFW_KEY_UNKNOWN, desc = "The keybind to hold for the auto clicker to click right click.").withDependency { !terminatorOnly }
+    private val enableLeftClick by BooleanSetting(
+        "Enable Left Click",
+        true,
+        desc = "Enable auto-clicking for left-click."
+    ).withDependency { !terminatorOnly }
+    private val enableRightClick by BooleanSetting(
+        "Enable Right Click",
+        true,
+        desc = "Enable auto-clicking for right-click."
+    ).withDependency { !terminatorOnly }
+    private val leftCps by NumberSetting(
+        "Left Clicks Per Second",
+        5.0f,
+        3.0,
+        15.0,
+        .5,
+        desc = "The amount of left clicks per second to perform."
+    ).withDependency { !terminatorOnly }
+    private val rightCps by NumberSetting(
+        "Right Clicks Per Second",
+        5.0f,
+        3.0,
+        15.0,
+        .5,
+        desc = "The amount of right clicks per second to perform."
+    ).withDependency { !terminatorOnly }
+    private val leftClickKeybind = KeybindSetting(
+        "Left Click",
+        GLFW.GLFW_KEY_UNKNOWN,
+        desc = "The keybind to hold for the auto clicker to click left click."
+    ).withDependency { !terminatorOnly }
+    private val rightClickKeybind = KeybindSetting(
+        "Right Click",
+        GLFW.GLFW_KEY_UNKNOWN,
+        desc = "The keybind to hold for the auto clicker to click right click."
+    ).withDependency { !terminatorOnly }
 
     private val scribble = Scribble("features/autoClicker")
     val leftWhitelist = scribble.mutableSet("leftWhitelist", Codec.STRING)

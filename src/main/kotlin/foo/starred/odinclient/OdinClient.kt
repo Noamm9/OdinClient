@@ -13,7 +13,9 @@ import foo.starred.odinclient.commands.autoSellCommand
 import foo.starred.odinclient.commands.highlightCommand
 import foo.starred.odinclient.commands.streamCommand
 import foo.starred.odinclient.features.*
-import foo.starred.odinclient.features.impl.cheats.*
+import foo.starred.odinclient.features.impl.dungeons.*
+import foo.starred.odinclient.features.impl.floor7.*
+import foo.starred.odinclient.features.impl.general.*
 import foo.starred.odinclient.features.impl.render.*
 import foo.starred.odinclient.helpers.Scribble
 import net.fabricmc.api.ClientModInitializer
@@ -27,9 +29,9 @@ object OdinClient : ClientModInitializer {
     )
 
     private val modulesToRegister: Array<Module> = arrayOf(
-        CloseChest, DungeonAbilities, FuckDiorite, SecretHitboxes, BreakerHelper, LividSolver, SpiritBear, TriggerBot,
-        Highlight, AutoClicker, Gloomlock, EscrowFix, AutoGFS, QueueTerms, AutoTerms, Trajectories, AutoSell, SimonSays, InventoryWalk,
-        FarmKeys, AutoExperiments, EtherwarpHelper, GhostBlock, CancelInteract, WorldScanner, AutoDojo, CheaterWardrobe,
+        CloseChest, AutoAbilities, FuckDiorite, SecretHitboxes, BreakerHelper, LividSolver, SpiritBear, TriggerBot,
+        Highlight, AutoClicker, EscrowFix, AutoGFS, QueueTerms, AutoTerms, Trajectories, AutoSell, SimonSays,
+        InventoryWalk, FarmKeys, AutoExperiments, EtherwarpHelper, GhostBlock, WorldScanner, AutoDojo, CheaterWardrobe,
         CameraHelper, ModSettings, AutoSuperboom, Ghosts, NoGlow, AutoHarp, /*? if >= 26.1 {*/DoorHighlight/*? }*/
     )
 
