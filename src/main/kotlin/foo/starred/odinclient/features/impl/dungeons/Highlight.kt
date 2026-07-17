@@ -145,14 +145,14 @@ object Highlight : Module(
 
             starredIds.forEach { id ->
                 val entity = world.getEntity(id) ?: return@forEach
-                if (!entity.isAlive) return@on
+                if (!entity.isAlive) return@forEach
                 drawStyledBox(entity.renderBoundingBox, color, renderStyle, depthCheck)
                 if (bool0) drawTracer(entity.renderPos, color, depth = depthCheck)
             }
 
             witherIds.forEach { id ->
                 val entity = world.getEntity(id) ?: return@forEach
-                if (!entity.isAlive) return@on
+                if (!entity.isAlive) return@forEach
                 drawStyledBox(entity.renderBoundingBox, witherColor, renderStyle, depthCheck)
                 if (bool1) drawTracer(entity.renderPos, witherColor, depth = depthCheck)
             }
@@ -166,7 +166,7 @@ object Highlight : Module(
 
             customIds.forEach { (id, color) ->
                 val entity = world.getEntity(id) ?: return@forEach
-                if (!entity.isAlive) return@on
+                if (!entity.isAlive) return@forEach
                 drawStyledBox(entity.renderBoundingBox, color, renderStyle, depthCheck)
                 if (bool2) drawTracer(entity.renderPos, color, depth = depthCheck)
             }
