@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
     @WrapOperation(method = "extractBlockOutline", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getShape(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;"))
-    private VoxelShape extractBlockOutline(BlockState instance, BlockGetter level, BlockPos pos, CollisionContext context, Operation<VoxelShape> original) {
+    private VoxelShape odinClient$extractBlockOutline(BlockState instance, BlockGetter level, BlockPos pos, CollisionContext context, Operation<VoxelShape> original) {
         VoxelShape outline = SecretHitboxes.INSTANCE.getShape(instance);
         return outline != null ? outline : original.call(instance, level, pos, context);
     }

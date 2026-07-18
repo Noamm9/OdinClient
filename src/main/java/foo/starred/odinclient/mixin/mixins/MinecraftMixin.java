@@ -21,7 +21,7 @@ public class MinecraftMixin {
     public LocalPlayer player;
 
     @Inject(method = "startAttack", at = @At("HEAD"), cancellable = true)
-    private void preAttack(CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$startAttack(CallbackInfoReturnable<Boolean> cir) {
         if (hitResult == null) return;
         if (hitResult.getType() != HitResult.Type.BLOCK) return;
 
@@ -30,7 +30,7 @@ public class MinecraftMixin {
     }
 
     @Inject(method = "continueAttack", at = @At("HEAD"), cancellable = true)
-    private void onContinueAttack(boolean leftClick, CallbackInfo ci) {
+    private void odinClient$continueAttack(boolean leftClick, CallbackInfo ci) {
         if (hitResult == null) return;
         if (hitResult.getType() != HitResult.Type.BLOCK) return;
 

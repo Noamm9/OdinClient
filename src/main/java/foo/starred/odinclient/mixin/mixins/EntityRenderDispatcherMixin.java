@@ -18,13 +18,13 @@ import foo.starred.odinclient.events.WorldRenderEvent;
 @Mixin(EntityRenderDispatcher.class)
 public class EntityRenderDispatcherMixin {
     @Inject(method = "extractEntity", at = @At("RETURN"))
-    private void onExtractEntity(Entity entity, float partialTick, CallbackInfoReturnable<EntityRenderState> cir) {
+    private void odinClient$extractEntity(Entity entity, float partialTick, CallbackInfoReturnable<EntityRenderState> cir) {
         EntityRenderState renderState = cir.getReturnValue();
         ((EntityRenderStateAccessor) renderState).odc$setEntity(entity);
     }
 
     @Inject(method = "submit", at = @At("HEAD"), cancellable = true)
-    private void onSubmit$pre(EntityRenderState renderState, CameraRenderState cameraRenderState, double camX, double camY, double camZ, PoseStack poseStack, SubmitNodeCollector nodeCollector, CallbackInfo ci) {
+    private void odinClient$submit(EntityRenderState renderState, CameraRenderState cameraRenderState, double camX, double camY, double camZ, PoseStack poseStack, SubmitNodeCollector nodeCollector, CallbackInfo ci) {
         Entity entity = ((EntityRenderStateAccessor) renderState).odc$getEntity();
         if (new WorldRenderEvent.Entity.Pre(renderState, poseStack, cameraRenderState, entity).postAndCatch()) ci.cancel();
     }

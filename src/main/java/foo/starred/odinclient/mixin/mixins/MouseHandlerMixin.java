@@ -12,12 +12,12 @@ import foo.starred.odinclient.events.InputEvent;
 @Mixin(MouseHandler.class)
 public class MouseHandlerMixin {
     @Inject(method = "turnPlayer", at = @At("HEAD"), cancellable = true)
-    private void onTurnPlayer(CallbackInfo ci) {
+    private void odinClient$turnPlayer(CallbackInfo ci) {
         if (FarmKeys.getLock()) ci.cancel();
     }
 
     @Inject(method = "onButton", at = @At("HEAD"), cancellable = true)
-    private void onButton(long window, MouseButtonInfo buttonInfo, int action, CallbackInfo ci) {
+    private void odinClient$onButton(long window, MouseButtonInfo buttonInfo, int action, CallbackInfo ci) {
         if (action == 1) {
             if (new InputEvent.Mouse.Press(buttonInfo).postAndCatch()) ci.cancel();
         } else if (action == 0) {

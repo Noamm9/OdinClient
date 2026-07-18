@@ -19,12 +19,12 @@ public class CameraMixin {
     ///? } else {
     /*@WrapOperation(method = "setup", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D"))
     *///? }
-    private double onSetup(LivingEntity instance, Holder<Attribute> attribute, Operation<Double> original) {
+    private double odinClient$setup(LivingEntity instance, Holder<Attribute> attribute, Operation<Double> original) {
         return CameraHelper.INSTANCE.getEnabled() && CameraHelper.INSTANCE.getEnableDist() ? CameraHelper.INSTANCE.getCameraDist() : original.call(instance, attribute);
     }
 
     @Inject(method = "getMaxZoom", at = @At("HEAD"), cancellable = true)
-    private void onGetMaxZoom(float maxZoom, CallbackInfoReturnable<Float> cir) {
+    private void odinClient$getMaxZoom(float maxZoom, CallbackInfoReturnable<Float> cir) {
         if (CameraHelper.INSTANCE.getEnabled() && CameraHelper.INSTANCE.getCameraClip()) cir.setReturnValue(maxZoom);
     }
 }

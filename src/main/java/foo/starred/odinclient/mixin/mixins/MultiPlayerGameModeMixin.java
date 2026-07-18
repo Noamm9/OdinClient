@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(MultiPlayerGameMode.class)
 public class MultiPlayerGameModeMixin {
     @Inject(method = "startDestroyBlock", at = @At("HEAD"))
-    private void onBlockHit(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$startDestroyBlock(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         BreakerHelper.onHitBlock(pos);
     }
 }

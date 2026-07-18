@@ -17,7 +17,7 @@ import java.util.Arrays;
 @Mixin(value = ModuleManager.class, remap = false)
 public class ModuleManagerMixin {
     @ModifyVariable(method = "registerModules", at = @At("HEAD"), argsOnly = true, ordinal = 0)
-    private static Module[] filterModules(Module[] modules, ModuleConfig config) {
+    private static Module[] odinClient$registerModules(Module[] modules, ModuleConfig config) {
         return Arrays.stream(modules)
                 .filter(module -> !(module instanceof LividSolver ||
                         module instanceof BreakerDisplay ||

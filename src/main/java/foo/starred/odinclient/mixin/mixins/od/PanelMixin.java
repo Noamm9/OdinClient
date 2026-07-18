@@ -23,32 +23,32 @@ public class PanelMixin {
     private Category category;
 
     @Inject(method = "draw", at = @At("HEAD"), cancellable = true)
-    private void onDraw(float mouseX, float mouseY, CallbackInfo ci) {
+    private void odinClient$draw(float mouseX, float mouseY, CallbackInfo ci) {
         if (category == Skit.CHEATS && streamMode) ci.cancel();
     }
 
     @Inject(method = "handleScroll", at = @At("HEAD"), cancellable = true)
-    private void onScroll(int amount, CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$handleScroll(int amount, CallbackInfoReturnable<Boolean> cir) {
         if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
-    private void onClick(float mouseX, float mouseY, MouseButtonEvent click, CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$mouseClicked(float mouseX, float mouseY, MouseButtonEvent click, CallbackInfoReturnable<Boolean> cir) {
         if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "mouseReleased", at = @At("HEAD"), cancellable = true)
-    private void onRelease(MouseButtonEvent click, CallbackInfo ci) {
+    private void odinClient$mouseReleased(MouseButtonEvent click, CallbackInfo ci) {
         if (category == Skit.CHEATS && streamMode) ci.cancel();
     }
 
     @Inject(method = "keyPressed", at = @At("HEAD"), cancellable = true)
-    private void onKeyPress(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$keyPressed(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
         if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "keyTyped", at = @At("HEAD"), cancellable = true)
-    private void onKeyType(CharacterEvent input, CallbackInfoReturnable<Boolean> cir) {
+    private void odinClient$keyTyped(CharacterEvent input, CallbackInfoReturnable<Boolean> cir) {
         if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
     }
 }

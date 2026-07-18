@@ -18,7 +18,7 @@ public class ClientPacketListenerMixin {
     private ClientLevel level;
 
     @Inject(method = "handleSetEntityData", at = @At("TAIL"))
-    private void onHandleSetEntityData(ClientboundSetEntityDataPacket packet, CallbackInfo ci, @Local Entity entity) {
+    private void odinClient$handleSetEntityData(ClientboundSetEntityDataPacket packet, CallbackInfo ci, @Local Entity entity) {
         if (entity == null) return;
         if (new EntityMetadataEvent(entity, packet).postAndCatch() && this.level != null) {
             this.level.removeEntity(entity.getId(), Entity.RemovalReason.DISCARDED);

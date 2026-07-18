@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
     @Inject(method = "getTeamColor", at = @At("HEAD"), cancellable = true)
-    public void onGetTeamColor(CallbackInfoReturnable<Integer> cir) {
+    public void odinClient$getTeamColor(CallbackInfoReturnable<Integer> cir) {
         Entity self = (Entity)(Object)this;
 
         Integer color = Highlight.getTeammateColor(self);
@@ -19,7 +19,7 @@ public abstract class EntityMixin {
     }
 
     @Inject(method = "isCurrentlyGlowing", at = @At("HEAD"), cancellable = true)
-    public void onIsCurrentlyGlowing(CallbackInfoReturnable<Boolean> cir) {
+    public void odinClient$isCurrentlyGlowing(CallbackInfoReturnable<Boolean> cir) {
         if (NoGlow.INSTANCE.getEnabled()) cir.setReturnValue(false);
     }
 }
