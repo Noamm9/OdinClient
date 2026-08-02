@@ -2,6 +2,7 @@
 package foo.starred.odinclient.mixin.mixins.od;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import com.odtheking.odin.features.impl.dungeon.map.DungeonScan;
 import com.odtheking.odin.utils.Color;
 import foo.starred.odinclient.features.impl.dungeons.CheaterMap;
@@ -30,13 +31,13 @@ public class DungeonScanMixin {
         return CheaterMap.getShowRooms() || original;
     }
 
-    @ModifyArg(method = "updateViewableDoors", at = @At(value = "INVOKE", target = "Lkotlin/TuplesKt;to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;"), index = 1)
-    private static Object odinClient$updateViewableDoors$3(Object color) {
+    @ModifyArg(method = "updateViewableDoors", at = @At(value = "INVOKE", target = "Lcom/odtheking/odin/features/impl/dungeon/map/tile/DungeonDoor;setColor(Lcom/odtheking/odin/utils/Color;)V"), index = 0)
+    private static Color odinClient$updateViewableDoors$3(Color color) {
         if (!CheaterMap.getShowRooms()) return color;
         if (!CheaterMap.getDarken()) return color;
         if (!odinClient$bool$0 && !odinClient$bool$1) return color;
 
-        return Color.Companion.darker((Color) color, (float) CheaterMap.INSTANCE.getDarkenFactor());
+        return Color.Companion.darker(color, (float) CheaterMap.INSTANCE.getDarkenFactor());
     }
 }
 //? }
