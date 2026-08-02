@@ -13,7 +13,7 @@ import com.odtheking.odin.utils.render.drawStyledBox
 import com.odtheking.odin.utils.renderBoundingBox
 import foo.starred.odinclient.mixin.accessors.InventoryAccessor
 import foo.starred.odinclient.utils.RotationUtils
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.leftClick
 import net.minecraft.core.BlockPos
 import net.minecraft.world.entity.Entity
@@ -34,52 +34,17 @@ import kotlin.math.sqrt
 object AutoDojo : Module(
     name = "Auto Dojo (!!!)",
     description = "Automatically completes Hypixel SkyBlock dojo tests",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val hover by BooleanSetting("HOVER HERE!!!", true, "Use at your own risk.")
 
-    private val enableControl by BooleanSetting(
-        "Enable Control",
-        true,
-        desc = "Automatically aim at skeleton in Test of Control"
-    )
-    private val controlPredictionTicks by NumberSetting(
-        "Control Prediction Ticks",
-        5.0,
-        1.0,
-        20.0,
-        1.0,
-        desc = "How many ticks ahead to predict skeleton movement"
-    )
-    private val enableMastery by BooleanSetting(
-        "Enable Mastery",
-        true,
-        desc = "Automatically shoot blocks in Test of Mastery"
-    )
-    private val masteryShootDelay by NumberSetting(
-        "Mastery Shoot Delay (ms)",
-        600.0,
-        0.0,
-        2000.0,
-        50.0,
-        desc = "Time remaining on yellow block before shooting"
-    )
-    private val enableDiscipline by BooleanSetting(
-        "Enable Discipline",
-        true,
-        desc = "Automatically switch swords in Test of Discipline"
-    )
-    private val disciplineAutoAttack by BooleanSetting(
-        "Discipline Auto Attack",
-        true,
-        desc = "Automatically attack mobs in Test of Discipline"
-    )
-    private val renderStyle by SelectorSetting(
-        "Render Style",
-        "Filled",
-        listOf("Filled", "Outline", "Filled Outline"),
-        desc = "Style of the box."
-    )
+    private val enableControl by BooleanSetting("Enable Control", true, desc = "Automatically aim at skeleton in Test of Control")
+    private val controlPredictionTicks by NumberSetting("Control Prediction Ticks", 5.0, 1.0, 20.0, 1.0, desc = "How many ticks ahead to predict skeleton movement")
+    private val enableMastery by BooleanSetting("Enable Mastery", true, desc = "Automatically shoot blocks in Test of Mastery")
+    private val masteryShootDelay by NumberSetting("Mastery Shoot Delay (ms)", 600.0, 0.0, 2000.0, 50.0, desc = "Time remaining on yellow block before shooting")
+    private val enableDiscipline by BooleanSetting("Enable Discipline", true, desc = "Automatically switch swords in Test of Discipline")
+    private val disciplineAutoAttack by BooleanSetting("Discipline Auto Attack", true, desc = "Automatically attack mobs in Test of Discipline")
+    private val renderStyle by SelectorSetting("Render Style", "Filled", listOf("Filled", "Outline", "Filled Outline"), desc = "Style of the box.")
 
     private var dojoType = DojoType.NONE
     private var targetSkeleton: Entity? = null

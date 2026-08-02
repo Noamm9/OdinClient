@@ -10,13 +10,13 @@ import com.odtheking.odin.features.Module
 import net.minecraft.core.BlockPos
 import net.minecraft.world.phys.BlockHitResult
 import net.minecraft.world.phys.HitResult
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.rightClick
 
 object SimonSays : Module(
     name = "Simon Says Additions",
     description = "Additions for Simon Says!",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val startButton = BlockPos(110, 121, 91)
     private val autoStart by BooleanSetting("Auto start", false, desc = "Automatically starts the device when it can be started.")

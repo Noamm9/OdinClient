@@ -18,10 +18,10 @@ import foo.starred.odinclient.features.impl.floor7.*
 import foo.starred.odinclient.features.impl.general.*
 import foo.starred.odinclient.features.impl.render.*
 import foo.starred.odinclient.helpers.Scribble
+import foo.starred.snowbird.handlers.parser.parse
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
-import xyz.aerii.library.handlers.parser.parse
 
 object OdinClient : ClientModInitializer {
     private val commandsToRegister: Array<Commodore> = arrayOf(
@@ -77,10 +77,7 @@ object OdinClient : ClientModInitializer {
         modMessage("", "")
         modMessage("<hover:<${0xFFC4B5FD.toInt()}>Click to join!><click:url:https://discord.gg/DB5S3DjQVa>Need help or want to suggest features? Click to join the Discord!".parse())
         modMessage(divider, "")
-        modMessage(
-            "<hover:<green>Click to open!><click:url:https://aerii.xyz/donate>Want to help support the development for mods like OdinClient? Click here :3".parse(),
-            ""
-        )
+        modMessage("<hover:<green>Click to open!><click:url:https://patreon.com/starredskies>Want to help support the development for mods like OdinClient? Click here :3".parse(), "")
         modMessage(divider, "")
     }
 }

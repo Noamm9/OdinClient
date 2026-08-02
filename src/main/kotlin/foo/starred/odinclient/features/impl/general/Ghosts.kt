@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.state.CreeperRenderState
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.monster.Creeper
 import foo.starred.odinclient.events.WorldRenderEvent
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object Ghosts : Module(
     name = "Ghosts",
     description = "Things for Ghosts",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val showGhosts by BooleanSetting("Show Ghosts", desc = "Show the creeper entities.")
     private val showPowered by BooleanSetting("Show Powered Layer", true, desc = "Show the powered layer for creepers.")

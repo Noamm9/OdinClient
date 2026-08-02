@@ -12,13 +12,13 @@ import net.minecraft.world.InteractionHand
 import net.minecraft.world.item.ItemStack
 import foo.starred.odinclient.events.InputEvent
 import foo.starred.odinclient.mixin.accessors.KeyMappingAccessor
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.rightClick
 
 object EtherwarpHelper : Module(
     name = "Etherwarp helper",
     description = "Helper features for etherwarp",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val leftClickEW by BooleanSetting("Left click etherwarp", true, desc = "Turns your left clicks into right clicks when holding an etherwarp item")
     private val lceShift by BooleanSetting("Shift automatically", true, desc = "Automatically shifts for you as well.").withDependency { leftClickEW }

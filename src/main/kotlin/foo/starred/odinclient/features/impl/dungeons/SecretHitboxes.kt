@@ -10,12 +10,12 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.block.state.properties.AttachFace
 import net.minecraft.world.phys.shapes.Shapes
 import net.minecraft.world.phys.shapes.VoxelShape
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object SecretHitboxes : Module(
     name = "Secret Hitboxes",
     description = "Extends the hitboxes of secret blocks to a full block.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     val lever by BooleanSetting("Lever", false, desc = "Extends the lever hitbox.")
     val oldLeverStyle by BooleanSetting("1.8 lever hitbox", true, desc = "Use the 1.8 lever hitbox.").withDependency { lever }

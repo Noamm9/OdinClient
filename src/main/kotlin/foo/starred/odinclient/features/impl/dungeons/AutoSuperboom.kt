@@ -12,13 +12,13 @@ import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.phys.BlockHitResult
 import foo.starred.odinclient.events.InputEvent
 import foo.starred.odinclient.mixin.accessors.InventoryAccessor
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.leftClick
 
 object AutoSuperboom : Module(
     name = "Auto superboom",
     description = "Automatically swaps to superboom when you click a breakable wall!",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val minDelay by NumberSetting("Minimum delay", 1, 1, 5, unit = "ticks", desc = "The minimum delay for swapping.")
     private val maxDelay by NumberSetting("Maximum delay", 3, 1, 10, unit = "ticks", desc = "The maximum delay for swapping.")

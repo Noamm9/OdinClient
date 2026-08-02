@@ -16,14 +16,14 @@ import net.minecraft.network.protocol.common.ClientboundPingPacket
 import net.minecraft.network.protocol.game.ClientboundOpenScreenPacket
 import net.minecraft.network.protocol.game.ServerboundContainerClickPacket
 import foo.starred.odinclient.mixin.accessors.KeyMappingAccessor
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 // Hypixel only checks for inventory walk on container clicks.
 // Therefore, by only moving when not clicking, we can bypass the check!
 object InventoryWalk : Module(
     name = "Inventory Walk (!!!)",
     description = "Use at your own risk! Only allows movement when not clicking.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val ping by NumberSetting("Ping", 200, 1, 500, unit = "ms", desc = "The ping to use for checks.")
 

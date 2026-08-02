@@ -45,48 +45,24 @@ import com.odtheking.odin.utils.lore
 import com.odtheking.odin.utils.modMessage
 import com.odtheking.odin.utils.noControlCodes
 import foo.starred.odinclient.OdinClient
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.guiClick
+import foo.starred.snowbird.utils.stripped
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
 import net.minecraft.world.entity.player.Inventory
 import net.minecraft.world.inventory.ContainerInput
 import net.minecraft.world.item.Items
-import xyz.aerii.library.utils.stripped
 
 object AutoSell : Module(
     name = "Auto Sell",
     description = "Automatically sell items in trades and cookie menus. (/autosell)",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     val sellList by ListSetting("Sell list", mutableSetOf<String>())
-    private val delay by NumberSetting(
-        "Delay",
-        6,
-        2,
-        10,
-        1,
-        desc = "The delay between each sell action.",
-        unit = " ticks"
-    )
-    private val randomization by NumberSetting(
-        "Randomization",
-        1,
-        0,
-        5,
-        1,
-        desc = "Random delay variance",
-        unit = " ticks"
-    )
-    private val clickType1 by SelectorSetting(
-        "Click Type",
-        "Shift",
-        arrayListOf("Shift", "Middle", "Left"),
-        desc = "The type of click to use when selling items."
-    )
-    private val addDefaults by ActionSetting(
-        "Add defaults",
-        desc = "Add default dungeon items to the auto sell list."
-    ) {
+    private val delay by NumberSetting("Delay", 6, 2, 10, 1, desc = "The delay between each sell action.", unit = " ticks")
+    private val randomization by NumberSetting("Randomization", 1, 0, 5, 1, desc = "Random delay variance", unit = " ticks")
+    private val clickType1 by SelectorSetting("Click Type", "Shift", arrayListOf("Shift", "Middle", "Left"), desc = "The type of click to use when selling items.")
+    private val addDefaults by ActionSetting("Add defaults", desc = "Add default dungeon items to the auto sell list.") {
         sellList.addAll(defaultItems)
         modMessage("§aAdded default items to auto sell list")
         OdinClient.moduleConfig.save()

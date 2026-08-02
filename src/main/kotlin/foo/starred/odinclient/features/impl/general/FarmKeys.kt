@@ -41,12 +41,12 @@ import com.odtheking.odin.features.Module
 import net.minecraft.client.KeyMapping
 import org.lwjgl.glfw.GLFW
 import foo.starred.odinclient.mixin.accessors.KeyMappingAccessor
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object FarmKeys : Module(
     name = "Farm keys",
     description = "Temporarily changes your minecraft keybind configuration for farming in Skyblock.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private var prev: Int? = null
     private var prev0: Int? = null

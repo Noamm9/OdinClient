@@ -16,13 +16,13 @@ import net.minecraft.world.entity.boss.enderdragon.EndCrystal
 import net.minecraft.world.phys.BlockHitResult
 import net.minecraft.world.phys.EntityHitResult
 import net.minecraft.world.phys.HitResult
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.rightClick
 
 object TriggerBot : Module(
     name = "TriggerBot",
     description = "Trigger bots for things!",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val crystalDropdown by DropdownSetting("Crystal Dropdown", false)
     private val crystal by BooleanSetting("Crystal", false, desc = "Automatically takes and places crystals.").withDependency { crystalDropdown }

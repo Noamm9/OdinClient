@@ -62,7 +62,7 @@ import net.minecraft.world.phys.AABB
 import net.minecraft.world.phys.BlockHitResult
 import net.minecraft.world.phys.HitResult
 import net.minecraft.world.phys.Vec3
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
@@ -70,7 +70,7 @@ import kotlin.math.sin
 object Trajectories : Module(
     name = "Trajectories",
     description = "Shows the trajectories of arrows, snowballs, etc.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val bows by BooleanSetting("Bows", true, desc = "Render trajectories of bow arrows.")
     private val pearls by BooleanSetting("Pearls", true, desc = "Render trajectories of ender pearls.")

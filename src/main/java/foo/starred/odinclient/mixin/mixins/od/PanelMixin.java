@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import foo.starred.odinclient.utils.Skit;
 
 import static foo.starred.odinclient.commands.StreamCommandKt.streamMode;
 
@@ -24,31 +23,31 @@ public class PanelMixin {
 
     @Inject(method = "draw", at = @At("HEAD"), cancellable = true)
     private void odinClient$draw(float mouseX, float mouseY, CallbackInfo ci) {
-        if (category == Skit.CHEATS && streamMode) ci.cancel();
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) ci.cancel();
     }
 
     @Inject(method = "handleScroll", at = @At("HEAD"), cancellable = true)
     private void odinClient$handleScroll(int amount, CallbackInfoReturnable<Boolean> cir) {
-        if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"), cancellable = true)
     private void odinClient$mouseClicked(float mouseX, float mouseY, MouseButtonEvent click, CallbackInfoReturnable<Boolean> cir) {
-        if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "mouseReleased", at = @At("HEAD"), cancellable = true)
     private void odinClient$mouseReleased(MouseButtonEvent click, CallbackInfo ci) {
-        if (category == Skit.CHEATS && streamMode) ci.cancel();
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) ci.cancel();
     }
 
     @Inject(method = "keyPressed", at = @At("HEAD"), cancellable = true)
     private void odinClient$keyPressed(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
-        if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) cir.setReturnValue(false);
     }
 
     @Inject(method = "keyTyped", at = @At("HEAD"), cancellable = true)
     private void odinClient$keyTyped(CharacterEvent input, CallbackInfoReturnable<Boolean> cir) {
-        if (category == Skit.CHEATS && streamMode) cir.setReturnValue(false);
+        if (category == foo.starred.odinclient.utils.Category.CHEATS && streamMode) cir.setReturnValue(false);
     }
 }

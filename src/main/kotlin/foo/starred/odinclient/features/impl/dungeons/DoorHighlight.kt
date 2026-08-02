@@ -52,7 +52,7 @@ import com.odtheking.odin.utils.alert
 import com.odtheking.odin.utils.equalsOneOf
 import com.odtheking.odin.utils.render.drawStyledBox
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.decoration.ArmorStand
@@ -61,7 +61,7 @@ import net.minecraft.world.phys.AABB
 object DoorHighlight : Module(
     name = "Door Highlight (C)",
     description = "Highlights wither and blood doors and keys in dungeons.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val announceKeySpawn by BooleanSetting("Announce Key Spawn", true, desc = "Announces when a key is spawned.")
     private val doorHighlightColor by ColorSetting("Door Highlight Color", Colors.MINECRAFT_RED.withAlpha(0.8f), true, desc = "Color for locked doors.")

@@ -64,6 +64,9 @@ repositories {
     strictMaven("https://api.modrinth.com/maven", "maven.modrinth")
     strictMaven("https://maven.parchmentmc.org/", "org.parchmentmc")
     strictMaven("https://jitpack.io", "com.github.stivais", "com.github.odtheking", "com.github.sivthepolarfox", "com.github.skies-starred")
+
+    maven("https://maven.starred.foo/releases")
+    maven("https://maven.starred.foo/snapshots")
 }
 
 fletchingTable {
@@ -79,7 +82,7 @@ dependencies {
 
     rune("devauth".global)
 
-    shadow("library".versioned)
+    shadow("snowbird".versioned)
 
     impl("fabric-api".versioned)
     impl("fabric-loader".global)

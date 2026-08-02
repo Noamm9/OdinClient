@@ -2,7 +2,7 @@ package foo.starred.odinclient.features.impl.floor7
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.features.Module
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.notify
 import net.minecraft.network.chat.ClickEvent
 import net.minecraft.network.chat.Component
@@ -13,7 +13,7 @@ import java.net.URI
 object QueueTerms : Module(
     name = "Queue Terms",
     description = "Queues clicks in terminals to ensure every click is registered (only works in custom term gui).",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val hover by BooleanSetting(
         "HOVER HERE!!!",

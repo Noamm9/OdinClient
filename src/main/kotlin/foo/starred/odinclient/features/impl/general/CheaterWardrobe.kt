@@ -2,16 +2,12 @@ package foo.starred.odinclient.features.impl.general
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.features.Module
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object CheaterWardrobe : Module(
     name = "Cheater Wardrobe",
     description = "Automatically swaps wardrobe slots without interrupting movement or showing the GUI.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
-    private val hover by BooleanSetting(
-        "HOVER HERE!!!",
-        true,
-        "Temporarily removed, will be back in the next release. Use Nebulune for now."
-    )
+    private val hover by BooleanSetting("HOVER HERE!!!", true, "Temporarily removed, will be back in the next release. Use Nebulune for now.")
 }

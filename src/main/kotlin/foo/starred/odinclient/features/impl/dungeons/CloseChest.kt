@@ -46,12 +46,12 @@ import net.minecraft.client.gui.screens.Screen
 import net.minecraft.client.gui.screens.inventory.ContainerScreen
 import net.minecraft.network.protocol.game.ClientboundOpenScreenPacket
 import net.minecraft.network.protocol.game.ServerboundContainerClosePacket
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object CloseChest : Module(
     name = "Close Chest",
     description = "Allows you to instantly close chests with any key or automatically.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val mode by SelectorSetting("Mode", "Auto", arrayListOf("Auto", "Any Key"), desc = "The mode to use.")
 

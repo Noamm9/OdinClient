@@ -33,6 +33,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package foo.starred.odinclient.helpers
 
-import xyz.aerii.library.handlers.data.AbstractScribble
+import foo.starred.snowbird.handlers.data.AbstractScribble
 
 class Scribble(path: String) : AbstractScribble("odinClient", path)

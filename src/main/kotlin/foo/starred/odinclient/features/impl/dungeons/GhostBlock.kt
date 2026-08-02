@@ -14,14 +14,14 @@ import net.minecraft.network.protocol.game.ServerboundUseItemOnPacket
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.phys.BlockHitResult
 import org.lwjgl.glfw.GLFW
-import foo.starred.odinclient.utils.Skit
-import xyz.aerii.library.api.bound
-import xyz.aerii.library.api.pressed
+import foo.starred.odinclient.utils.Category
+import foo.starred.snowbird.api.bound
+import foo.starred.snowbird.api.pressed
 
 object GhostBlock : Module(
     name = "Ghost Block",
     description = "Turns blocks you look at into ghost blocks.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val UAYOR by BooleanSetting("Use at your own risk", desc = "This feature can get you banned if used improperly.")
     private val stonkGhostBlock by BooleanSetting("Stonk Ghost Block", true, desc = "Creates a ghost block when right-clicking with a pickaxe.")

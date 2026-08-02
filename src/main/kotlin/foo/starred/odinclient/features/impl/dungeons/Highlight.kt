@@ -58,13 +58,13 @@ import net.minecraft.world.entity.decoration.ArmorStand
 import net.minecraft.world.entity.monster.EnderMan
 import net.minecraft.world.entity.player.Player
 import foo.starred.odinclient.events.EntityMetadataEvent
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.drawTracer
 
 object Highlight : Module(
     name = "Highlight (C)",
     description = "Allows you to highlight selected entities.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val depthCheck by BooleanSetting("Depth Check", false, desc = "Disable to enable ESP")
     private val highlightStar by BooleanSetting("Highlight Starred Mobs", true, desc = "Highlights starred dungeon mobs.")

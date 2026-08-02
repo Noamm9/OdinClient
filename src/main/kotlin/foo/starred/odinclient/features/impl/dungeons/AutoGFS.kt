@@ -51,7 +51,7 @@ import com.odtheking.odin.utils.skyblock.KuudraUtils
 import com.odtheking.odin.utils.skyblock.LocationUtils
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
 import foo.starred.odinclient.mixin.accessors.PuzzleSolversAccessor
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 //? if >= 26.1 {
 import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
@@ -62,7 +62,7 @@ import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
 object AutoGFS : Module(
     name = "Auto GFS",
     description = "Automatically refills certain items from your sacks.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val inSkyblock by BooleanSetting("In Skyblock", true, desc = "gfs everywhere in skyblock.")
     private val inKuudra by BooleanSetting("In Kuudra", true, desc = "Only gfs in Kuudra.").withDependency { !inSkyblock }

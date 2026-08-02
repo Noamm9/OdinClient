@@ -9,7 +9,7 @@ import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.hasGlint
 import com.odtheking.odin.utils.noControlCodes
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.guiClick
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
 import net.minecraft.world.inventory.ContainerInput
@@ -19,37 +19,13 @@ import java.util.concurrent.ConcurrentHashMap
 object AutoExperiments : Module(
     name = "Auto Experiments",
     description = "Automatically click on the Chronomatron and Ultrasequencer experiments.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
-    private val clickDelay by NumberSetting(
-        "Click Delay",
-        200,
-        100,
-        1000,
-        10,
-        unit = "ms",
-        desc = "Time in ms between automatic test clicks."
-    )
-    private val delayVariety by NumberSetting(
-        "Delay variety",
-        50,
-        0,
-        1000,
-        10,
-        unit = "ms",
-        desc = "Variance in delays"
-    )
-    private val autoClose by BooleanSetting(
-        "Auto Close",
-        true,
-        desc = "Automatically close the GUI after completing the experiment."
-    )
+    private val clickDelay by NumberSetting("Click Delay", 200, 100, 1000, 10, unit = "ms", desc = "Time in ms between automatic test clicks.")
+    private val delayVariety by NumberSetting("Delay variety", 50, 0, 1000, 10, unit = "ms", desc = "Variance in delays")
+    private val autoClose by BooleanSetting("Auto Close", true, desc = "Automatically close the GUI after completing the experiment.")
     private val serumCount by NumberSetting("Serum Count", 0, 0, 3, 1, desc = "Consumed Metaphysical Serum count.")
-    private val getMaxXp by BooleanSetting(
-        "Get Max XP",
-        false,
-        desc = "Solve Chronomatron to 15 and Ultrasequencer to 20 for max XP."
-    )
+    private val getMaxXp by BooleanSetting("Get Max XP", false, desc = "Solve Chronomatron to 15 and Ultrasequencer to 20 for max XP.")
 
     private var handler: ExperimentHandler? = null
     private var lastClick: Long = 0

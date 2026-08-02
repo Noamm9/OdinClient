@@ -6,8 +6,9 @@ import com.odtheking.odin.events.core.onReceive
 import com.odtheking.odin.events.core.onSend
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.skyblock.LocationUtils
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.guiClick
+import foo.starred.snowbird.api.client
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
 import net.minecraft.network.protocol.game.ClientboundContainerClosePacket
 import net.minecraft.network.protocol.game.ClientboundOpenScreenPacket
@@ -15,12 +16,11 @@ import net.minecraft.network.protocol.game.ServerboundContainerClosePacket
 import net.minecraft.world.inventory.ContainerInput
 import net.minecraft.world.inventory.MenuType
 import net.minecraft.world.item.Items
-import xyz.aerii.library.api.client
 
 object AutoHarp : Module(
     name = "Auto Harp",
     description = "Tries to do the Harp for you!",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private var bool: Boolean = false
     private var hash: Int = 0

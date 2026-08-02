@@ -43,12 +43,12 @@ import com.odtheking.odin.utils.handlers.schedule
 import com.odtheking.odin.utils.modMessage
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
 import org.lwjgl.glfw.GLFW
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object AutoAbilities : Module(
     name = "Auto Abilities",
     description = "Automatically uses your ability in dungeons.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val autoUlt by BooleanSetting("Auto Ult", false, desc = "Automatically uses your ultimate ability whenever needed.")
     private val abilityKeybind by KeybindSetting("Ability Keybind", GLFW.GLFW_KEY_UNKNOWN, desc = "Keybind to use your ability.").onPress {

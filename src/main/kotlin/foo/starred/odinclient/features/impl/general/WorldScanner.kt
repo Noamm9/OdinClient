@@ -21,13 +21,13 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.chunk.LevelChunk
 import net.minecraft.world.phys.AABB
 import net.minecraft.world.phys.Vec3
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import java.util.concurrent.ConcurrentHashMap
 
 object WorldScanner : Module(
     name = "World Scanner",
     description = "Scans and highlights structures in Crystal Hollows",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val scanCrystals by BooleanSetting("Scan Crystals", true, desc = "Scans for crystal waypoints")
     private val scanMobSpots by BooleanSetting("Scan Mob Spots", true, desc = "Scans for mob spawn locations")

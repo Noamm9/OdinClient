@@ -4,12 +4,12 @@ package foo.starred.odinclient.features.impl.dungeons
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.clickgui.settings.impl.NumberSetting
 import com.odtheking.odin.features.Module
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 
 object CheaterMap : Module(
     name = "Cheater map",
     description = "Modifications for the Odin map.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val _showRooms by BooleanSetting("Show hidden rooms", true, desc = "Shows hidden rooms.")
     private val _darken by BooleanSetting("Darken tiles", true, desc = "Darken hidden rooms and doors.")

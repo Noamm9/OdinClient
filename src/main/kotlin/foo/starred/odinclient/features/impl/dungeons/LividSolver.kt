@@ -47,7 +47,7 @@ import com.odtheking.odin.utils.modMessage
 import com.odtheking.odin.utils.render.drawWireFrameBox
 import com.odtheking.odin.utils.render.textDim
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
-import foo.starred.odinclient.utils.Skit
+import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.drawTracer
 import net.minecraft.core.BlockPos
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
@@ -58,7 +58,7 @@ import net.minecraft.world.level.block.Blocks
 object LividSolver : Module(
     name = "Livid Solver (C)",
     description = "Provides a visual cue for the correct Livid's location in the boss fight.",
-    category = Skit.CHEATS
+    category = Category.CHEATS
 ) {
     private val depthCheck by BooleanSetting("Depth Check", false, desc = "Disable to enable ESP")
     private val tracer by BooleanSetting("Tracer", true, desc = "Displays a tracer to the livid") // mi0 c:
