@@ -23,6 +23,7 @@ snowbird-1-21-11 = "011+1.21.11"
 snowbird-26-1 = "011+26.1"
 
 firmament-1-21-11 = "44.0.0+mc1.21.11"
+firmament-26-1 = "44.3.0+mc26.1"
 parchment-1-21-11 = "2025.12.20"
 
 # needed by odin to work properly in dev env as we use modrinth which doesn't provide the transitive dependencies
@@ -47,6 +48,7 @@ odin-act-26-1 = { module = "maven.modrinth:odin", version.ref = "odin-act-26-1" 
 odin-prod-26-1 = { module = "maven.modrinth:odin", version.ref = "odin-prod-26-1" }
 
 firmament-1-21-11 = { module = "maven.modrinth:firmament", version.ref = "firmament-1-21-11" }
+firmament-26-1 = { module = "maven.modrinth:firmament", version.ref = "firmament-26-1" }
 
 snowbird-1-21-11 = { module = "foo.starred:snowbird", version.ref = "snowbird-1-21-11" }
 snowbird-26-1 = { module = "foo.starred:snowbird", version.ref = "snowbird-26-1" }

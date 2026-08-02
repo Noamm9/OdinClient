@@ -81,6 +81,7 @@ dependencies {
     "minecraft"("com.mojang:minecraft:$ver")
 
     rune("devauth".global)
+    comp("firmament".versioned)
 
     shadow("snowbird".versioned)
 
@@ -93,8 +94,6 @@ dependencies {
     impl("lwjgl-nanovg".global)
 
     if (new) return@dependencies
-
-    comp("firmament".versioned)
     "mappings"(loom.layered {
         officialMojangMappings()
         parchment("parchment".versioned)
