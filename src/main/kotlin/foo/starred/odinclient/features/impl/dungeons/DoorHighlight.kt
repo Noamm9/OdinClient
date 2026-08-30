@@ -32,7 +32,6 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-//? if >= 26.1 {
 package foo.starred.odinclient.features.impl.dungeons
 
 import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
@@ -82,6 +81,9 @@ object DoorHighlight : Module(
     private val bloodKeyPickedUpRegex = Regex("^A Blood Key was picked up!$")
     private val bloodDoorOpenRegex = Regex("^The BLOOD DOOR has been opened!$")
 
+    val depth: Boolean
+        get() = enabled && depthCheck
+
     init {
         on<ChatPacketEvent> {
             if (!DungeonUtils.inClear) return@on
@@ -106,7 +108,7 @@ object DoorHighlight : Module(
         on<RenderEvent.Extract> {
             if (!DungeonUtils.inClear) return@on
 
-            DungeonScan.viewableDoors.forEach { (door, _) ->
+            DungeonScan.doors.forEach { (_, door) ->
                 if (!door.type.equalsOneOf(DoorType.Wither, DoorType.Blood)) return@forEach
                 if (door.type == DoorType.Blood && bloodOpened) return@forEach
 
@@ -148,4 +150,3 @@ object DoorHighlight : Module(
         var entity: Entity? = null
     }
 }
-//? }
