@@ -1,4 +1,3 @@
-//? if >= 26.1 {
 package foo.starred.odinclient.mixin.mixins.od;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -44,4 +43,3 @@ public class MapRendererMixin {
         return (a << 24) | (r << 16) | (g << 8) | b;
     }
 }
-//? }

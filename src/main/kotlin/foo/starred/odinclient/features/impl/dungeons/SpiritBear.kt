@@ -127,7 +127,6 @@ object SpiritBear : Module(
             if (timer > 0) timer--
         }
 
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             kills = 0
             timer = -1

@@ -10,7 +10,7 @@ import com.odtheking.odin.events.TickEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.itemId
-import foo.starred.odinclient.helpers.Scribble
+import foo.starred.odinclient.api.storage.JsonStore
 import foo.starred.odinclient.mixin.accessors.KeyMappingAccessor
 import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.leftClick
@@ -40,7 +40,7 @@ object AutoClicker : Module(
     private val leftClickKeybind = KeybindSetting("Left Click", GLFW.GLFW_KEY_UNKNOWN, desc = "The keybind to hold for the auto clicker to click left click.").withDependency { !terminatorOnly }
     private val rightClickKeybind = KeybindSetting("Right Click", GLFW.GLFW_KEY_UNKNOWN, desc = "The keybind to hold for the auto clicker to click right click.").withDependency { !terminatorOnly }
 
-    private val scribble = Scribble("features/autoClicker")
+    private val scribble = JsonStore("features/autoClicker")
     val leftWhitelist = scribble.mutableSet("leftWhitelist", Codec.STRING)
     val rightWhitelist = scribble.mutableSet("rightWhitelist", Codec.STRING)
 

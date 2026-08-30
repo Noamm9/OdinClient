@@ -23,6 +23,5 @@ fun leftClick() {
 
 fun guiClick(id: Int, index: Int, button: Int = 0, clickType: ContainerInput = ContainerInput.PICKUP) {
     val player = mc.player ?: return
-    //~ if >= 26.1 'handleInventoryMouseClick' -> 'handleContainerInput'
     mc.gameMode?.handleContainerInput(id, index, button, clickType, player)
 }

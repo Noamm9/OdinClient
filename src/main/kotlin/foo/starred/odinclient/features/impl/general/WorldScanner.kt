@@ -102,7 +102,6 @@ object WorldScanner : Module(
             }
         }
 
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             clearWaypoints()
         }

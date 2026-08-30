@@ -14,11 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Camera.class)
 public class CameraMixin {
-    //? if >= 26.1 {
     @WrapOperation(method = "alignWithEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D"))
-    ///? } else {
-    /*@WrapOperation(method = "setup", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D"))
-    *///? }
     private double odinClient$setup(LivingEntity instance, Holder<Attribute> attribute, Operation<Double> original) {
         return CameraHelper.INSTANCE.getEnabled() && CameraHelper.INSTANCE.getEnableDist() ? CameraHelper.INSTANCE.getCameraDist() : original.call(instance, attribute);
     }

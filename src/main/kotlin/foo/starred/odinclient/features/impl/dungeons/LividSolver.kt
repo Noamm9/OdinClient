@@ -113,7 +113,6 @@ object LividSolver : Module(
             if (invulnTime > 0) invulnTime--
         }
 
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             currentLivid = Livid.HOCKEY
             currentLivid.entity = null

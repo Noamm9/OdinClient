@@ -3,7 +3,6 @@ package foo.starred.odinclient.events
 import com.mojang.blaze3d.vertex.PoseStack
 import com.odtheking.odin.events.core.CancellableEvent
 import net.minecraft.client.renderer.entity.state.EntityRenderState
-//~ if >= 26.1 'CameraRenderState' -> 'level.CameraRenderState'
 import net.minecraft.client.renderer.state.level.CameraRenderState
 
 sealed class WorldRenderEvent {

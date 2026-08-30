@@ -41,6 +41,7 @@ import com.odtheking.odin.events.ChatPacketEvent
 import com.odtheking.odin.events.TickEvent
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.features.Module
+import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
 import com.odtheking.odin.features.impl.dungeon.puzzlesolvers.PuzzleSolvers
 import com.odtheking.odin.utils.fillItemFromSack
 import com.odtheking.odin.utils.handlers.schedule
@@ -52,12 +53,6 @@ import com.odtheking.odin.utils.skyblock.LocationUtils
 import com.odtheking.odin.utils.skyblock.dungeon.DungeonUtils
 import foo.starred.odinclient.mixin.accessors.PuzzleSolversAccessor
 import foo.starred.odinclient.utils.Category
-
-//? if >= 26.1 {
-import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
-//? } else {
-/*import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
-*///? }
 
 object AutoGFS : Module(
     name = "Auto GFS",

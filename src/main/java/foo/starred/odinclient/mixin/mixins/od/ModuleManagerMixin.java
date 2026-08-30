@@ -6,7 +6,6 @@ import com.odtheking.odin.features.ModuleManager;
 import com.odtheking.odin.features.impl.boss.LividSolver;
 import com.odtheking.odin.features.impl.boss.SpiritBear;
 import com.odtheking.odin.features.impl.dungeon.BreakerDisplay;
-//? >= 26.1
 import com.odtheking.odin.features.impl.dungeon.DoorHighlight;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,7 +20,6 @@ public class ModuleManagerMixin {
         return Arrays.stream(modules)
                 .filter(module -> !(module instanceof LividSolver ||
                         module instanceof BreakerDisplay ||
-                        //? >= 26.1
                         module instanceof DoorHighlight ||
                         module instanceof SpiritBear))
                 .toArray(Module[]::new);

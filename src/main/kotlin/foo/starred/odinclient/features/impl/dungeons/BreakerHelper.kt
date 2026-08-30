@@ -4,6 +4,7 @@ import com.odtheking.odin.clickgui.settings.impl.BooleanSetting
 import com.odtheking.odin.events.core.on
 import com.odtheking.odin.events.core.onReceive
 import com.odtheking.odin.features.Module
+import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
 import com.odtheking.odin.utils.Colors
 import com.odtheking.odin.utils.equalsOneOf
 import com.odtheking.odin.utils.itemId
@@ -16,12 +17,6 @@ import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.level.block.Blocks
 import foo.starred.odinclient.events.InteractEvent
 import foo.starred.odinclient.utils.Category
-
-//? if >= 26.1 {
-import com.odtheking.odin.features.impl.dungeon.map.tile.RoomType
-//? } else {
-/*import com.odtheking.odin.utils.skyblock.dungeon.tiles.RoomType
-*///? }
 
 object BreakerHelper : Module(
     name = "Breaker Helper",

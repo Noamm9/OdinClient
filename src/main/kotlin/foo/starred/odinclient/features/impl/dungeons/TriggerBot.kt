@@ -90,7 +90,6 @@ object TriggerBot : Module(
             clicked[pos] = n
         }
 
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             clicked.clear()
         }

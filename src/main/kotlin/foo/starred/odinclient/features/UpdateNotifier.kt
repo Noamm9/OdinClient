@@ -37,7 +37,6 @@ object UpdateNotifier {
     }
 
     init {
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             if (times++ >= 3) return@on
 

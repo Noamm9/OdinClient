@@ -17,8 +17,8 @@ import foo.starred.odinclient.features.impl.dungeons.*
 import foo.starred.odinclient.features.impl.floor7.*
 import foo.starred.odinclient.features.impl.general.*
 import foo.starred.odinclient.features.impl.render.*
-import foo.starred.odinclient.helpers.Scribble
-import foo.starred.snowbird.handlers.parser.parse
+import foo.starred.odinclient.api.storage.JsonStore
+import foo.starred.snowbird.api.text.parser.impl.parse
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
@@ -32,10 +32,10 @@ object OdinClient : ClientModInitializer {
         CloseChest, AutoAbilities, FuckDiorite, SecretHitboxes, BreakerHelper, LividSolver, SpiritBear, TriggerBot,
         Highlight, AutoClicker, EscrowFix, AutoGFS, QueueTerms, AutoTerms, Trajectories, AutoSell, SimonSays,
         InventoryWalk, FarmKeys, AutoExperiments, EtherwarpHelper, GhostBlock, WorldScanner, AutoDojo, CheaterWardrobe,
-        CameraHelper, ModSettings, AutoSuperboom, Ghosts, NoGlow, AutoHarp, /*? if >= 26.1 {*/DoorHighlight, CheaterMap/*? }*/
+        CameraHelper, ModSettings, AutoSuperboom, Ghosts, NoGlow, AutoHarp, DoorHighlight, CheaterMap
     )
 
-    private val mainFile: Scribble = Scribble("main")
+    private val mainFile: JsonStore = JsonStore("main")
 
     private var lastInstall: String by mainFile.string("lastInstall")
     private var send: Boolean = true
