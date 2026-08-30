@@ -1,15 +1,15 @@
-//? if >= 26.1 {
 package foo.starred.odinclient.mixin.mixins.od;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import com.odtheking.odin.features.impl.dungeon.map.DungeonScan;
 import com.odtheking.odin.utils.Color;
 import foo.starred.odinclient.features.impl.dungeons.CheaterMap;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(DungeonScan.class)
 public class DungeonScanMixin {
@@ -39,5 +39,11 @@ public class DungeonScanMixin {
 
         return Color.Companion.darker(color, (float) CheaterMap.INSTANCE.getDarkenFactor());
     }
+
+    @Inject(method = "updateViewableDoors", at = @At("TAIL"))
+    private static void odinClient$updateViewableDoors$4(CallbackInfo ci) {
+        if (!CheaterMap.getShowRooms()) return;
+
+        DungeonScan.INSTANCE.getPathHints().clear();
+    }
 }
-//? }
