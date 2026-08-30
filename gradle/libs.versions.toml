@@ -1,15 +1,15 @@
 [versions]
-loom = "1.15-SNAPSHOT"
+loom = "1.17-SNAPSHOT"
 fletchingTable = "0.1.0-alpha.22"
-ksp = "2.3.0"
-kotlin = "2.3.0"
+ksp = "2.3.11"
+kotlin = "2.4.10"
 
 devauth = "1.2.2"
 commodore = "1.0.1"
 kommand = "1.0.1"
 
 fabric-loader = "0.19.3"
-fabric-language-kotlin = "1.13.12+kotlin.2.4.0"
+fabric-language-kotlin = "1.13.13+kotlin.2.4.10"
 
 fabric-api-26-1 = "0.151.0+26.1.2"
 

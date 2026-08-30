@@ -59,18 +59,17 @@ loom {
     fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json")
 
     runConfigs.named("client") {
-        isIdeConfigGenerated = true
-        vmArgs.addAll(
-            arrayOf(
-                "-Ddevauth.enabled=true",
-                "-Ddevauth.account=main",
-                "-XX:+AllowEnhancedClassRedefinition"
-            )
+        generateRunConfig = true
+        jvmArguments.addAll(
+            "-Ddevauth.enabled=true",
+            "-Ddevauth.account=main",
+            "-XX:+AllowEnhancedClassRedefinition",
+            "-XX:+IgnoreUnrecognizedVMOptions",
         )
     }
 
     runConfigs.named("server") {
-        isIdeConfigGenerated = false
+        generateRunConfig = false
     }
 }
 
