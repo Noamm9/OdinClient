@@ -172,7 +172,6 @@ object Highlight : Module(
             }
         }
 
-        //~ if >= 26.1 'WorldEvent' -> 'LevelEvent'
         on<LevelEvent.Load> {
             starredIds.clear()
             customIds.clear()

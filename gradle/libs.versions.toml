@@ -6,6 +6,7 @@ kotlin = "2.3.0"
 
 devauth = "1.2.2"
 commodore = "1.0.1"
+kommand = "1.0.1"
 
 fabric-loader = "0.19.3"
 fabric-language-kotlin = "1.13.12+kotlin.2.4.0"
@@ -17,7 +18,7 @@ odin-act-1-21-11 = "CwOwZGVZ"
 odin-prod-1-21-11 = "CwOwZGVZ"
 
 odin-act-26-1 = "e2cf40d9aa"
-odin-prod-26-1 = "E6IEzXhD"
+odin-prod-26-1 = "cC7YBIsC"
 
 snowbird-1-21-11 = "012+1.21.11"
 snowbird-26-1 = "012+26.1"
@@ -26,9 +27,6 @@ firmament-1-21-11 = "44.0.0+mc1.21.11"
 firmament-26-1 = "44.3.0+mc26.1"
 parchment-1-21-11 = "2025.12.20"
 
-# needed by odin to work properly in dev env as we use modrinth which doesn't provide the transitive dependencies
-okhttp = "5.2.1"
-okio = "3.16.1"
 lwjgl-nanovg = "3.3.3"
 
 [libraries]
@@ -37,6 +35,7 @@ fabric-language-kotlin = { module = "net.fabricmc:fabric-language-kotlin", versi
 
 devauth = { module = "me.djtheredstoner:DevAuth-fabric", version.ref = "devauth" }
 commodore = { module = "com.github.stivais:Commodore", version.ref = "commodore" }
+kommand = { module = "foo.starred:kommand", version.ref = "kommand" }
 
 fabric-api-1-21-11 = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api-1-21-11" }
 fabric-api-26-1 = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api-26-1" }
@@ -54,10 +53,6 @@ snowbird-1-21-11 = { module = "foo.starred:snowbird", version.ref = "snowbird-1-
 snowbird-26-1 = { module = "foo.starred:snowbird", version.ref = "snowbird-26-1" }
 
 parchment-1-21-11 = { module = "org.parchmentmc.data:parchment-1.21.11", version.ref = "parchment-1-21-11" }
-
-# needed by odin to work properly in dev env as we use modrinth which doesn't provide the transitive dependencies
-okhttp = { module = "com.squareup.okhttp3:okhttp-jvm", version.ref = "okhttp" }
-okio = { module = "com.squareup.okio:okio-jvm", version.ref = "okio" }
 lwjgl-nanovg = { module = "org.lwjgl:lwjgl-nanovg", version.ref = "lwjgl-nanovg" }
 
 [plugins]

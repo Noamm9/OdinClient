@@ -21,7 +21,7 @@
     "odin-client.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.17",
+    "fabricloader": ">=0.19",
     "fabric-api": "*",
     "fabric-language-kotlin": "*",
     "minecraft": "${minecraft}",
