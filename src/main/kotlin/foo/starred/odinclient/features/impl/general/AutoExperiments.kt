@@ -6,12 +6,15 @@ import com.odtheking.odin.events.GuiEvent
 import com.odtheking.odin.events.ScreenEvent
 import com.odtheking.odin.events.TickEvent
 import com.odtheking.odin.events.core.on
+import com.odtheking.odin.events.core.onReceive
 import com.odtheking.odin.features.Module
 import com.odtheking.odin.utils.hasGlint
 import com.odtheking.odin.utils.noControlCodes
 import foo.starred.odinclient.utils.Category
 import foo.starred.odinclient.utils.guiClick
+import foo.starred.snowbird.api.client
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen
+import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket
 import net.minecraft.world.inventory.ContainerInput
 import net.minecraft.world.item.Items
 import java.util.concurrent.ConcurrentHashMap
@@ -55,8 +58,8 @@ object AutoExperiments : Module(
             cancel()
         }
 
-        on<GuiEvent.SlotUpdate> {
-            handler?.onSlotUpdate(this)
+        onReceive<ClientboundContainerSetSlotPacket> {
+            handler?.onSlotUpdate()
         }
 
         on<TickEvent.Start> {
@@ -83,8 +86,8 @@ object AutoExperiments : Module(
         private var lastAddedSlot = -1
         private var close = false
 
-        override fun onSlotUpdate(event: GuiEvent.SlotUpdate) {
-            val slots = event.menu.slots
+        override fun onSlotUpdate() {
+            val slots = (client.screen as? AbstractContainerScreen<*>)?.menu?.slots ?: return
             val center = slots[49].item
 
             if (
@@ -121,8 +124,8 @@ object AutoExperiments : Module(
     private class UltrasequencerHandler : ExperimentHandler() {
         private val order = ConcurrentHashMap<Int, Int>()
 
-        override fun onSlotUpdate(event: GuiEvent.SlotUpdate) {
-            val slots = event.menu.slots
+        override fun onSlotUpdate() {
+            val slots = (client.screen as? AbstractContainerScreen<*>)?.menu?.slots ?: return
             val center = slots[49].item
 
             if (center.item == Items.CLOCK) {
@@ -151,7 +154,7 @@ object AutoExperiments : Module(
         protected var clicks = 0
         protected var hasData = false
 
-        abstract fun onSlotUpdate(event: GuiEvent.SlotUpdate)
+        abstract fun onSlotUpdate()
 
         abstract fun nextClick(): Int?
 
