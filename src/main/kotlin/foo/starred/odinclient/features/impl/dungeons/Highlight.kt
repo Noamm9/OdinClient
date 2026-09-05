@@ -153,8 +153,9 @@ object Highlight : Module(
             }
 
             witherIds.forEach { id ->
-                val entity = world.getEntity(id) ?: return@forEach
+                val entity = world.getEntity(id) as? WitherBoss ?: return@forEach
                 if (!entity.isAlive) return@forEach
+                if (entity.invulnerableTicks == 0) return@forEach
                 drawStyledBox(entity.renderBoundingBox, witherColor, renderStyle, depthCheck)
                 if (bool1) drawTracer(entity.renderPos, witherColor, depth = depthCheck)
             }
